@@ -10,7 +10,6 @@ import { About } from "./pages/About";
 import { Haj } from "./pages/Haj";
 import { Visa } from "./pages/Visa";
 import { Contact } from "./pages/Contact";
-import { Store } from "./pages/Store";
 
 export default function App() {
   return (
@@ -21,7 +20,6 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="haj" element={<Haj />} />
           <Route path="visa" element={<Visa />} />
-          <Route path="store" element={<Store />} />
           <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Plane, Compass, FileText, Phone, Building2, ShoppingBag } from "lucide-react";
+import { Plane, Compass, FileText, Phone, Building2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -7,7 +7,6 @@ const navItems = [
   { name: "About", path: "/about", icon: Building2 },
   { name: "Haj", path: "/haj", icon: Compass },
   { name: "Visa", path: "/visa", icon: FileText },
-  { name: "Store", path: "/store", icon: ShoppingBag },
   { name: "Contact", path: "/contact", icon: Phone },
 ];
 

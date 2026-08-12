@@ -30,7 +30,7 @@ export function Home() {
           alt="Travel Hero" 
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="relative z-20 flex flex-col items-center text-center px-5 max-w-4xl mx-auto mt-8 md:mt-0">
+        <div className="relative z-20 flex flex-col items-center text-center px-5 max-w-4xl mx-auto mt-8 md:mt-0 pb-2 md:pb-6">
           <span className="text-brand-secondary font-bold uppercase tracking-widest text-xs mb-4">Trust & Excellence Since 1998</span>
           <h1 className="text-[clamp(2.25rem,8vw,4.5rem)] font-black text-white leading-[1.1] mb-6 px-2">
             Your Journey, <br />Our Responsibility
@@ -38,7 +38,7 @@ export function Home() {
           <p className="text-blue-50 text-base md:text-xl font-medium mb-10 max-w-2xl text-balance">
             Flights, Visas, Tours, Travel Assistance and Haj & Umrah Services — all under one trusted travel partner.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-5 w-full sm:w-auto mb-7 md:mb-10">
             <Link to="/contact" className="bg-brand-secondary w-full sm:w-auto hover:bg-brand-secondary/90 text-white font-bold py-3.5 px-8 rounded-xl transition-all text-center flex items-center justify-center gap-2 shadow-xl shadow-brand-secondary/20 text-sm h-12">
               Plan Your Journey <ArrowRight className="w-5 h-5" />
             </Link>
