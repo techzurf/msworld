@@ -1,5 +1,7 @@
 import { ArrowRight, Plane, FileText, Map, ShieldCheck, Hotel, Stamp, Compass, CreditCard, Star, Users, CheckCircle2, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import omanImg from "../assets/images/regenerated_image_1786535351090.png";
+import saudiImg from "../assets/images/regenerated_image_1786537639643.png";
 
 export function Home() {
   const quickServices = [
@@ -14,9 +16,9 @@ export function Home() {
   ];
 
   const popularDestinations = [
-    { name: "Saudi Arabia", desc: "Spiritual & Business Travel", img: "https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?q=80&w=800&auto=format&fit=crop" },
+    { name: "Saudi Arabia", desc: "Spiritual & Business Travel", img: saudiImg },
     { name: "United Arab Emirates", desc: "Luxury & Shopping", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop" },
-    { name: "Oman", desc: "Culture & Landscapes", img: "https://images.unsplash.com/photo-1589803138865-c32c253c0cb9?q=80&w=800&auto=format&fit=crop" },
+    { name: "Oman", desc: "Culture & Landscapes", img: omanImg },
     { name: "Maldives", desc: "Tropical Paradise", img: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=800&auto=format&fit=crop" },
   ];
 

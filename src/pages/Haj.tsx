@@ -1,4 +1,6 @@
 import { Calendar, Clock, MapPin, Plane, CheckCircle2, ChevronRight, Compass } from "lucide-react";
+import makkahImg from "../assets/images/regenerated_image_1786538104023.png";
+import madinahImg from "../assets/images/regenerated_image_1786538104767.png";
 
 export function Haj() {
   const packages = [
@@ -82,7 +84,7 @@ export function Haj() {
           {/* Makkah */}
           <div className="relative h-80 rounded-3xl overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
-            <img src="https://images.unsplash.com/photo-1591834907153-276e01768822?q=80&w=800&auto=format&fit=crop" alt="Makkah" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img src={makkahImg} alt="Makkah" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute bottom-0 left-0 p-8 z-20">
               <h3 className="text-3xl font-bold font-serif text-white mb-2">Makkah</h3>
               <p className="text-white/80 font-medium flex items-center gap-2">
@@ -90,10 +92,11 @@ export function Haj() {
               </p>
             </div>
           </div>
+
           {/* Madinah */}
           <div className="relative h-80 rounded-3xl overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
-            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop" alt="Madinah" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+            <img src={madinahImg} alt="Madinah" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute bottom-0 left-0 p-8 z-20">
               <h3 className="text-3xl font-bold font-serif text-white mb-2">Madinah</h3>
               <p className="text-white/80 font-medium flex items-center gap-2">
