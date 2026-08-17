@@ -6,7 +6,7 @@ import { Phone, Menu, X } from "lucide-react";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "Haj", path: "/haj" },
+  { name: "Haj / Umrah", path: "/haj" },
   { name: "Visa", path: "/visa" },
   { name: "Contact", path: "/contact" },
 ];

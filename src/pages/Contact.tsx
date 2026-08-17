@@ -1,6 +1,48 @@
+import React, { useState } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    date: "",
+    message: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    if (error) setError("");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.service || !formData.message.trim()) {
+      setError("Please fill in all required fields (*).");
+      return;
+    }
+
+    const text = `*Hello MS World Travels,*
+
+I would like to make a travel enquiry.
+
+*Name:* ${formData.name}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email || 'Not provided'}
+*Service Required:* ${formData.service}
+*Travel Date:* ${formData.date || 'Not specified'}
+*Message:* ${formData.message}
+
+Thank you.`;
+
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/919884353228?text=${encodedText}`;
+    
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="flex flex-col w-full ">
       {/* Hero */}
@@ -57,16 +99,16 @@ export function Contact() {
         <div className="space-y-12">
           <div className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
             <h2 className="text-2xl font-bold font-serif text-slate-900 mb-8">Send Us a Message</h2>
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Full Name" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
-                <input type="tel" placeholder="Phone Number" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
+                <input name="name" value={formData.name} onChange={handleChange} required type="text" placeholder="Full Name *" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
+                <input name="phone" value={formData.phone} onChange={handleChange} required type="tel" placeholder="Phone Number *" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                <input type="email" placeholder="Email Address" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
-                <select className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none text-slate-500">
-                  <option value="">Select Service Required</option>
+                <input name="email" value={formData.email} onChange={handleChange} type="email" placeholder="Email Address" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none" />
+                <select name="service" value={formData.service} onChange={handleChange} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none text-slate-500">
+                  <option value="">Select Service Required *</option>
                   <option>Flight Tickets</option>
                   <option>Visa</option>
                   <option>Tour Package</option>
@@ -79,9 +121,11 @@ export function Contact() {
                 </select>
               </div>
 
-              <input type="date" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none text-slate-500" />
+              <input name="date" value={formData.date} onChange={handleChange} type="date" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none text-slate-500" />
               
-              <textarea rows={5} placeholder="Your Message" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none resize-none"></textarea>
+              <textarea name="message" value={formData.message} onChange={handleChange} required rows={5} placeholder="Your Message *" className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 h-12 text-base focus:ring-2 focus:ring-brand-primary/50 outline-none resize-none"></textarea>
+              
+              {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
               
               <button type="submit" className="w-full sm:w-auto bg-brand-primary text-white font-bold py-3.5 px-10 rounded-xl hover:bg-brand-primary/90 transition-colors shadow-lg h-12 flex items-center justify-center">
                 Send Enquiry
